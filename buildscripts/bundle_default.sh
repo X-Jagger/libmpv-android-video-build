@@ -50,3 +50,9 @@ zip -r default-x86.jar            lib/x86/*.so
 zip -r default-x86_64.jar         lib/x86_64/*.so
 
 md5sum *.jar
+
+# WatchTranslate fork: put the default jars where the workflow uploads them.
+cd ../../../../../../..
+mkdir -p artifacts/default
+cp deps/media-kit-android-helper/app/build/outputs/apk/release/default-*.jar artifacts/default/
+(cd artifacts/default && md5sum *.jar)
